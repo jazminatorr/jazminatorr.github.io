@@ -1,215 +1,328 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Jazmin Velez</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Name — Portfolio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #7F77DD;
+    --accent-light: #EEEDFE;
+    --accent-mid: #534AB7;
+    --bg: #0e0e12;
+    --bg2: #16161c;
+    --bg3: #1e1e26;
+    --text: #f0eff8;
+    --muted: #9997b0;
+    --border: rgba(127,119,221,0.18);
+    --radius: 12px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(14,14,18,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; height: 60px; }
+  .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--accent); letter-spacing: -0.5px; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Jazmin</strong> <span>Velez</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About Me</a></li>
-							<li><a href="my_work.html">My Work</a></li>
-							<li><a href="contact.html">Get in Touch</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+  /* HERO */
+  #hero { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding-top: 2rem; }
+  .hero-tag { display: inline-block; background: var(--accent-light); color: var(--accent-mid); font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 100px; margin-bottom: 1.2rem; letter-spacing: 0.5px; }
+  #hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1rem; }
+  #hero h1 span { color: var(--accent); }
+  .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.65rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-mid); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-scroll { margin-top: 4rem; color: var(--muted); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+  .scroll-line { width: 40px; height: 1px; background: var(--muted); }
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<h1>Hi, my name is Jazmin</h1>
-							</header>
-							<div class="content">
-								<p>A responsive site template designed by HTML5 UP<br />
-								and released under the Creative Commons.</p>
-								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">Get Started</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
+  /* SECTION LABEL */
+  .section-label { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+  .section-sub { color: var(--muted); margin-bottom: 3rem; max-width: 500px; }
+  .divider { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0.75rem 0 2.5rem; }
 
-				<!-- Main -->
-					<div id="main">
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+  .about-photo { width: 100%; aspect-ratio: 1; border-radius: var(--radius); background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 3rem; }
+  .about-text p { color: var(--muted); margin-bottom: 1rem; }
+  .about-quick { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .quick-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted); background: var(--bg3); padding: 6px 12px; border-radius: 100px; border: 1px solid var(--border); }
+  .quick-item span { color: var(--accent); }
 
-						<!-- One -->
-							<section id="one" class="tiles">
-								<article>
-									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="autonomous_driving.html" class="link">Autonomous Driving</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="virtual_reality.html" class="link">Virtual Reality</a></h3>
-										<p>feugiat amet tempus</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="automation.html" class="link">Automation</a></h3>
-										<p>Lorem etiam nullam</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="arduino.html" class="link">Arduino</a></h3>
-										<p>Nisl sed aliquam</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="robotics.html" class="link">Robotics</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="snowboarding.html" class="link">Snowboarding</a></h3>
-										<p>Feugiat amet tempus</p>
-									</header>
-								</article>
-							</section>
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+  .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-cat { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 100px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
 
-						<!-- Two -->
-							<section id="two">
-								<div class="inner">
-									<header class="major">
-										<h2>Massa libero</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									<ul class="actions">
-										<li><a href="landing.html" class="button next">Get Started</a></li>
-									</ul>
-								</div>
-							</section>
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-icon { font-size: 1.5rem; }
+  .project-links { display: flex; gap: 8px; }
+  .project-link { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .project-link:hover { color: var(--accent); }
+  .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .project-card p { font-size: 0.88rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-light); color: var(--accent-mid); font-weight: 600; }
 
-					</div>
+  /* EXPERIENCE */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-dot { position: absolute; left: -2rem; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+  .timeline-date { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem; }
+  .timeline-role { font-size: 1rem; font-weight: 700; }
+  .timeline-company { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--muted); }
 
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">jazminatorr @ gmail</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Englewood, NJ 07631<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
+  /* INTERESTS */
+  .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+  .interest-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; transition: border-color 0.2s; }
+  .interest-card:hover { border-color: var(--accent); }
+  .interest-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .interest-card p { font-size: 0.85rem; color: var(--muted); }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+  /* CONTACT */
+  #contact { text-align: center; }
+  .contact-desc { color: var(--muted); margin-bottom: 2.5rem; }
+  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+  .contact-link { display: flex; align-items: center; gap: 8px; padding: 0.65rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; color: var(--text); border: 1px solid var(--border); transition: all 0.2s; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link svg { width: 18px; height: 18px; fill: currentColor; }
 
-			</div>
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
 
-	</body>
+<nav>
+  <div class="nav-logo">YN</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.85rem;">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Open to opportunities</div>
+  <h1>Hi, I'm <span>Your Name</span>.<br/>I build things for the web.</h1>
+  <p class="hero-sub">Software engineer passionate about clean code, great user experiences, and solving hard problems. Based in New Jersey.</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">View my work</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div> Scroll to explore</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About me</div>
+  <h2 class="section-title">A little about myself</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-photo">👤</div>
+    <div class="about-text">
+      <p>I'm a software engineer with a love for building intuitive, performant applications. Whether I'm designing a backend API or crafting a pixel-perfect UI, I bring curiosity and care to every layer of the stack.</p>
+      <p>I thrive in collaborative environments where good ideas can come from anywhere — and I believe the best products are built at the intersection of technical rigor and creative thinking.</p>
+      <p>When I'm not coding, you'll find me exploring new technologies, contributing to open source, or enjoying a good book and a cup of coffee.</p>
+      <div class="about-quick">
+        <div class="quick-item"><span>📍</span> New Jersey, USA</div>
+        <div class="quick-item"><span>🎓</span> B.S. Computer Science</div>
+        <div class="quick-item"><span>💼</span> 3+ Years Experience</div>
+        <div class="quick-item"><span>🌐</span> Open to remote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">What I work with</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-cat">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Frontend</div>
+      <div class="skill-tags">
+        <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vue</span><span class="tag">Tailwind CSS</span><span class="tag">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Backend</div>
+      <div class="skill-tags">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">GraphQL</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Tools & Platforms</div>
+      <div class="skill-tags">
+        <span class="tag">Git</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🛒</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Live ↗</a>
+        </div>
+      </div>
+      <h3>E-Commerce Platform</h3>
+      <p>A full-stack shopping app with real-time inventory, Stripe payments, and an admin dashboard for order management.</p>
+      <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Stripe</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📊</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Live ↗</a>
+        </div>
+      </div>
+      <h3>Analytics Dashboard</h3>
+      <p>Interactive data visualization tool that ingests CSV/JSON data and renders custom charts, filters, and summary stats.</p>
+      <div class="project-tech"><span class="tech-tag">Vue</span><span class="tech-tag">D3.js</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Python</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <h3>AI Writing Assistant</h3>
+      <p>A browser extension powered by an LLM API that helps users rephrase, expand, and summarize selected text inline.</p>
+      <div class="project-tech"><span class="tech-tag">TypeScript</span><span class="tech-tag">Chrome API</span><span class="tech-tag">OpenAI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2023 — Present</div>
+      <div class="timeline-role">Software Engineer</div>
+      <div class="timeline-company">Company Name · Full-time</div>
+      <div class="timeline-desc">Built and maintained core product features used by 50k+ users. Led migration from monolith to microservices, reducing API latency by 40%.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2022 — 2023</div>
+      <div class="timeline-role">Frontend Developer</div>
+      <div class="timeline-company">Another Company · Full-time</div>
+      <div class="timeline-desc">Developed responsive React components for a SaaS platform, collaborated with design to ship an overhauled UI that improved user retention by 25%.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Summer 2021</div>
+      <div class="timeline-role">Software Engineering Intern</div>
+      <div class="timeline-company">Tech Startup · Internship</div>
+      <div class="timeline-desc">Built internal tooling with Python and Flask, wrote unit tests, and contributed to open-source documentation.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background: var(--bg3); border-color: var(--accent);"></div>
+      <div class="timeline-date">2018 — 2022</div>
+      <div class="timeline-role">B.S. Computer Science</div>
+      <div class="timeline-company">University Name · GPA: 3.8</div>
+      <div class="timeline-desc">Coursework in algorithms, systems, machine learning, and software engineering. Dean's List 3 semesters.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="section-label">Interests</div>
+  <h2 class="section-title">Beyond the code</h2>
+  <div class="divider"></div>
+  <p class="section-sub">A few things that keep me inspired outside of work.</p>
+  <div class="interests-grid">
+    <div class="interest-card"><div class="interest-icon">📸</div><p>Photography</p></div>
+    <div class="interest-card"><div class="interest-icon">🎮</div><p>Indie Games</p></div>
+    <div class="interest-card"><div class="interest-icon">🎵</div><p>Music Production</p></div>
+    <div class="interest-card"><div class="interest-icon">📚</div><p>Sci-Fi & Tech Books</p></div>
+    <div class="interest-card"><div class="interest-icon">🚴</div><p>Cycling</p></div>
+    <div class="interest-card"><div class="interest-icon">🌍</div><p>Travel</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label" style="text-align:center">Contact</div>
+  <h2 class="section-title">Let's work together</h2>
+  <div class="divider" style="margin: 0.75rem auto 2.5rem;"></div>
+  <p class="contact-desc">Whether you have a role in mind, want to collaborate, or just want to say hi — my inbox is open.</p>
+  <div class="contact-links">
+    <a href="mailto:you@email.com" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email me
+    </a>
+    <a href="https://linkedin.com" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      GitHub
+    </a>
+    <a href="#" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      Resume
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Built with ♥ by Your Name · © 2026</p>
+</footer>
+
+</body>
 </html>
