@@ -61,12 +61,13 @@
   .quick-item span { color: var(--accent); }
 
   /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  @media (max-width: 720px) { .skills-grid { grid-template-columns: 1fr; } }
   .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; transition: border-color 0.2s, transform 0.2s; }
   .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
   .skill-cat { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.75rem; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 100px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
+  .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 6px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
 
   /* PROJECTS */
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
@@ -186,19 +187,19 @@
     <div class="skill-card">
       <div class="skill-cat">Tools & Platforms</div>
       <div class="skill-tags">
-        <span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">Robotics & Industrial Automation</span>
+        <span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">Industrial Robotics</span><span class="tag">Linux</span>
       </div>
     </div>
     <div class="skill-card">
       <div class="skill-cat">AI</div>
       <div class="skill-tags">
-        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Linear Algebra</span><span class="tag">Probability & Stochastic Processes</span>
+        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Linear Algebra</span><span class="tag">Probability</span><span class="tag">Stochastic Processes</span>
       </div>
     </div>
     <div class="skill-card">
       <div class="skill-cat">Computer Science</div>
       <div class="skill-tags">
-        <span class="tag">Data Structures & Algorithms</span>
+        <span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">OOP</span><span class="tag">System Design</span>
       </div>
     </div>
   </div>
