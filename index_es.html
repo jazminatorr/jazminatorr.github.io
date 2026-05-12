@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jazmin Velez — Portafolio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #7F77DD;
+    --accent-light: #EEEDFE;
+    --accent-mid: #534AB7;
+    --bg: #0e0e12;
+    --bg2: #16161c;
+    --bg3: #1e1e26;
+    --text: #f0eff8;
+    --muted: #9997b0;
+    --border: rgba(127,119,221,0.18);
+    --radius: 12px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(14,14,18,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; height: 60px; }
+  .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--accent); letter-spacing: -0.5px; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
+
+  /* HERO */
+  #hero { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding-top: 2rem; }
+  .hero-tag { display: inline-block; background: var(--accent-light); color: var(--accent-mid); font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 100px; margin-bottom: 1.2rem; letter-spacing: 0.5px; }
+  #hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1rem; }
+  #hero h1 span { color: var(--accent); }
+  .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.65rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-mid); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-scroll { margin-top: 4rem; color: var(--muted); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+  .scroll-line { width: 40px; height: 1px; background: var(--muted); }
+
+  /* SECTION LABEL */
+  .section-label { font-size: 0.95rem; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .section-title { font-size: clamp(1.3rem, 2.4vw, 1.75rem); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+  .section-sub { color: var(--muted); margin-bottom: 3rem; max-width: 500px; }
+  .divider { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0.75rem 0 2.5rem; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+  .about-photo { width: 100%; aspect-ratio: 1; border-radius: var(--radius); background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 3rem; }
+  .about-text p { color: var(--muted); margin-bottom: 1rem; }
+  .about-quick { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .quick-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted); background: var(--bg3); padding: 6px 12px; border-radius: 100px; border: 1px solid var(--border); }
+  .quick-item span { color: var(--accent); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  @media (max-width: 720px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-cat { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 6px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-icon { font-size: 1.5rem; }
+  .project-links { display: flex; gap: 8px; }
+  .project-link { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .project-link:hover { color: var(--accent); }
+  .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .project-card p { font-size: 0.88rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-light); color: var(--accent-mid); font-weight: 600; }
+
+  /* EXPERIENCE */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-dot { position: absolute; left: -2rem; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+  .timeline-date { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem; }
+  .timeline-role { font-size: 1rem; font-weight: 700; }
+  .timeline-company { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--muted); }
+
+  /* INTERESTS */
+  .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+  .interest-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; transition: border-color 0.2s; }
+  .interest-card:hover { border-color: var(--accent); }
+  .interest-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .interest-card p { font-size: 0.85rem; color: var(--muted); }
+
+  /* CONTACT */
+  #contact { text-align: center; }
+  .contact-desc { color: var(--muted); margin-bottom: 2.5rem; }
+  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+  .contact-link { display: flex; align-items: center; gap: 8px; padding: 0.65rem 1.4rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; color: var(--text); border: 1px solid var(--border); transition: all 0.2s; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; }
+
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">JV</div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#skills">Habilidades</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#education">Educación</a></li>
+    <li><a href="#interests">Intereses</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <div style="display:flex; gap:0.5rem; align-items:center;">
+    <a href="index.html" class="btn btn-outline" style="padding:0.45rem 1rem; font-size:0.85rem;">🇺🇸 EN</a>
+    <a href="#contact" class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.85rem;">Contrátame</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Abierta a oportunidades</div>
+  <h1>Hola, soy <span>Jazmin Velez</span>.<br/>Pongo a prueba los sistemas que impulsan la tecnología.</h1>
+  <p class="hero-sub">Ingeniería de software especializada en automatización de pruebas para sistemas críticos de alta tecnología — desde vehículos autónomos hasta visores de realidad virtual. Basada en Nueva Jersey.</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">Ver mi trabajo</a>
+    <a href="#contact" class="btn btn-outline">Contáctame</a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div> Desplázate para explorar</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Sobre mí</div>
+  <h2 class="section-title">Un poco sobre mí</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-photo">👤</div>
+    <div class="about-text">
+      <p>Soy ingeniera de software especializada en automatización de pruebas para sistemas de alta tecnología y seguridad crítica. A lo largo de más de 7 años, he desarrollado y liderado pipelines de pruebas automatizadas para vehículos autónomos en Cruise y Zoox, una plataforma HIL basada en robótica para el seguimiento de VR en Oculus, y software de entrenamiento de vuelo militar en Leidos.</p>
+      <p>Me desenvuelvo mejor donde los riesgos son altos y el hardware es implacable — diseñando arquitecturas de prueba que detectan fallos antes de que lleguen al mundo real. Aporto rigor de ingeniería y curiosidad en igual medida a cada sistema en el que trabajo, ya sea una ECU de suspensión, una pila de percepción de cámaras o un algoritmo de seguimiento SLAM.</p>
+      <p>Fuera del trabajo, me recargo en el exterior — el ciclismo de montaña, el snowboard y el buceo libre me mantienen con los pies en la tierra — y en la pista de baile con la salsa.</p>
+      <div class="about-quick">
+        <div class="quick-item"><span>📍</span> Nueva Jersey, EE. UU.</div>
+        <div class="quick-item"><span>🎓</span> Ing. Eléctrica &amp; Computadoras</div>
+        <div class="quick-item"><span>💼</span> 7+ Años de Experiencia</div>
+        <div class="quick-item"><span>🌐</span> Remoto y Puerto Rico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Habilidades</div>
+  <h2 class="section-title">Con qué trabajo</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-cat">Lenguajes</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Automatización de Pruebas</div>
+      <div class="skill-tags">
+        <span class="tag">Pytest</span><span class="tag">Pruebas HIL</span><span class="tag">Pruebas SIL</span><span class="tag">TestRail</span><span class="tag">CppUnitTest</span><span class="tag">Arquitectura de Pruebas</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Herramientas y Plataformas</div>
+      <div class="skill-tags">
+        <span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">Robótica Industrial</span><span class="tag">Linux</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">IA</div>
+      <div class="skill-tags">
+        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Álgebra Lineal</span><span class="tag">Probabilidad</span><span class="tag">Procesos Estocásticos</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Ciencias de la Computación</div>
+      <div class="skill-tags">
+        <span class="tag">Estructuras de Datos</span><span class="tag">Algoritmos</span><span class="tag">POO</span><span class="tag">Diseño de Sistemas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Proyectos</div>
+  <h2 class="section-title">Lo que he construido</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🛒</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Demo ↗</a>
+        </div>
+      </div>
+      <h3>Plataforma de E-Commerce</h3>
+      <p>Aplicación de compras full-stack con inventario en tiempo real, pagos con Stripe y un panel de administración para gestión de pedidos.</p>
+      <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Stripe</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📊</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Demo ↗</a>
+        </div>
+      </div>
+      <h3>Panel de Analítica</h3>
+      <p>Herramienta interactiva de visualización de datos que procesa archivos CSV/JSON y genera gráficos personalizados, filtros y estadísticas resumidas.</p>
+      <div class="project-tech"><span class="tech-tag">Vue</span><span class="tech-tag">D3.js</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Python</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <h3>Asistente de Escritura con IA</h3>
+      <p>Extensión de navegador impulsada por una API de LLM que ayuda a los usuarios a reformular, ampliar y resumir el texto seleccionado.</p>
+      <div class="project-tech"><span class="tech-tag">TypeScript</span><span class="tech-tag">Chrome API</span><span class="tech-tag">OpenAI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experiencia</div>
+  <h2 class="section-title">Dónde he trabajado</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Abr 2022 — Oct 2023</div>
+      <div class="timeline-role">Ingeniera Sénior de Desarrollo de Software en Pruebas</div>
+      <div class="timeline-company">Cruise · San Francisco, CA</div>
+      <div class="timeline-desc">Lideré el ciclo completo de QA para los sistemas de cámaras exteriores de misión crítica en vehículos autónomos. Diseñé un pipeline de automatización de pruebas en tres niveles (SIL, HIL, En Vehículo) integrado en CI/CD. Lideré el triage de fallos complejos de múltiples sistemas y dirigí la trazabilidad de requisitos en dos líneas de vehículos utilizando Pytest y TestRail.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Mar 2020 — Mar 2022</div>
+      <div class="timeline-role">Ingeniera de Software</div>
+      <div class="timeline-company">Zoox · Foster City, CA</div>
+      <div class="timeline-desc">Líder técnica del equipo de Integración Hardware-Software (HWSI) para una empresa de vehículos autónomos. Diseñé y desarrollé pruebas automatizadas HIL/SIL de componentes para las ECUs del sistema de suspensión del vehículo. Trasladé las pruebas de componentes desde etapas tardías a una automatización continua de múltiples etapas en CI/CD, acelerando significativamente los ciclos de validación.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Oct 2018 — Mar 2020</div>
+      <div class="timeline-role">Desarrolladora de Automatización de Pruebas de Software</div>
+      <div class="timeline-company">Oculus VR (vía Q Analysts) · Menlo Park, CA</div>
+      <div class="timeline-desc">Diseñé una plataforma de automatización de pruebas HIL basada en robótica para el sistema de seguimiento SLAM de Oculus VR, permitiendo la detección automatizada de regresiones en el rendimiento del rastreador. Desarrollé un framework en Python para controlar robots industriales en pruebas de trayectoria precisas y repetibles para visores y controladores de VR.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Oct 2016 — May 2018</div>
+      <div class="timeline-role">Ingeniera de Software Junior · Ingeniera de Pruebas</div>
+      <div class="timeline-company">Leidos · San Diego, CA</div>
+      <div class="timeline-desc">Desarrolladora de automatización de pruebas para el Sistema de Entrenamiento de Vuelo Militar del Reino Unido. Automaticé más de 900 pruebas unitarias en C++ con CppUnitTest, depuré fallos en compilaciones nocturnas y di soporte a CI/CD en Jenkins para productos de software heredados de planificación de misiones y debriefing post-vuelo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Educación</div>
+  <h2 class="section-title">Dónde estudié</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background: var(--bg3); border-color: var(--accent);"></div>
+      <div class="timeline-date">2016</div>
+      <div class="timeline-role">Licenciatura en Ciencias Aplicadas, Ingeniería Eléctrica y de Computadoras</div>
+      <div class="timeline-company">Rutgers School of Engineering</div>
+      <div class="timeline-desc">Future Leader of SHPE (2011) · Becaria SHPE-NYC (2010)</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="section-label">Intereses</div>
+  <h2 class="section-title">Más allá del código</h2>
+  <div class="divider"></div>
+  <p class="section-sub">Algunas cosas que me mantienen inspirada fuera del trabajo.</p>
+  <div class="interests-grid">
+    <div class="interest-card"><div class="interest-icon">🚵</div><p>Ciclismo de Montaña</p></div>
+    <div class="interest-card"><div class="interest-icon">🏂</div><p>Snowboard</p></div>
+    <div class="interest-card"><div class="interest-icon">🤿</div><p>Buceo Libre</p></div>
+    <div class="interest-card"><div class="interest-icon">💃</div><p>Bailar Salsa</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label" style="text-align:center">Contacto</div>
+  <h2 class="section-title">Trabajemos juntos</h2>
+  <div class="divider" style="margin: 0.75rem auto 2.5rem;"></div>
+  <p class="contact-desc">Ya sea que tengas un puesto en mente, quieras colaborar o simplemente saludar — mi bandeja de entrada está abierta.</p>
+  <div class="contact-links">
+    <a href="mailto:you@email.com" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Envíame un correo
+    </a>
+    <a href="https://linkedin.com" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      GitHub
+    </a>
+    <a href="#" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      Currículum
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Hecho con ♥ por Jazmin Velez · © 2026</p>
+</footer>
+
+<script>
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+  }
+  window.scrollTo(0, 0);
+</script>
+
+</body>
+</html>
