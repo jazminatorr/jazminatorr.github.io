@@ -69,20 +69,6 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 6px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
 
-  /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
-  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
-  .project-icon { font-size: 1.5rem; }
-  .project-links { display: flex; gap: 8px; }
-  .project-link { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
-  .project-link:hover { color: var(--accent); }
-  .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .project-card p { font-size: 0.88rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
-  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tech-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-light); color: var(--accent-mid); font-weight: 600; }
-
   /* EXPERIENCE */
   .timeline { position: relative; padding-left: 2rem; }
   .timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
@@ -124,7 +110,6 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#interests">Interests</a></li>
@@ -142,7 +127,6 @@
   <h1>Hi, I'm <span>Jazmin</span>.<br/>I test the systems that push technology forward.</h1>
   <p class="hero-sub">Software engineer specializing in test automation for high-tech critical systems — from autonomous vehicles to VR headsets. Based in New Jersey.</p>
   <div class="hero-btns">
-    <a href="#projects" class="btn btn-primary">View my work</a>
     <a href="#contact" class="btn btn-outline">Get in touch</a>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> Scroll to explore</div>
@@ -204,50 +188,6 @@
       <div class="skill-tags">
         <span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">OOP</span><span class="tag">System Design</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">Projects</div>
-  <h2 class="section-title">Things I've built</h2>
-  <div class="divider"></div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-icon">🛒</div>
-        <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-          <a href="#" class="project-link">Live ↗</a>
-        </div>
-      </div>
-      <h3>E-Commerce Platform</h3>
-      <p>A full-stack shopping app with real-time inventory, Stripe payments, and an admin dashboard for order management.</p>
-      <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Stripe</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-icon">📊</div>
-        <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-          <a href="#" class="project-link">Live ↗</a>
-        </div>
-      </div>
-      <h3>Analytics Dashboard</h3>
-      <p>Interactive data visualization tool that ingests CSV/JSON data and renders custom charts, filters, and summary stats.</p>
-      <div class="project-tech"><span class="tech-tag">Vue</span><span class="tech-tag">D3.js</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Python</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-icon">🤖</div>
-        <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-        </div>
-      </div>
-      <h3>AI Writing Assistant</h3>
-      <p>A browser extension powered by an LLM API that helps users rephrase, expand, and summarize selected text inline.</p>
-      <div class="project-tech"><span class="tech-tag">TypeScript</span><span class="tech-tag">Chrome API</span><span class="tech-tag">OpenAI</span></div>
     </div>
   </div>
 </section>

@@ -69,6 +69,20 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 6px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
 
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-icon { font-size: 1.5rem; }
+  .project-links { display: flex; gap: 8px; }
+  .project-link { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .project-link:hover { color: var(--accent); }
+  .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .project-card p { font-size: 0.88rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-light); color: var(--accent-mid); font-weight: 600; }
+
   /* EXPERIENCE */
   .timeline { position: relative; padding-left: 2rem; }
   .timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
@@ -110,6 +124,7 @@
   <ul class="nav-links">
     <li><a href="#about">Sobre mí</a></li>
     <li><a href="#skills">Habilidades</a></li>
+    <li><a href="#projects">Proyectos</a></li>
     <li><a href="#experience">Experiencia</a></li>
     <li><a href="#education">Educación</a></li>
     <li><a href="#interests">Intereses</a></li>
@@ -127,6 +142,7 @@
   <h1>Hola, soy <span>Jazmin</span>.<br/>Pongo a prueba los sistemas que impulsan la tecnología.</h1>
   <p class="hero-sub">Ingeniería de software especializada en automatización de pruebas para sistemas críticos de alta tecnología — desde vehículos autónomos hasta visores de realidad virtual. Basada en Nueva Jersey.</p>
   <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">Ver mi trabajo</a>
     <a href="#contact" class="btn btn-outline">Contáctame</a>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> Desplázate para explorar</div>
@@ -188,6 +204,50 @@
       <div class="skill-tags">
         <span class="tag">Estructuras de Datos</span><span class="tag">Algoritmos</span><span class="tag">POO</span><span class="tag">Diseño de Sistemas</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Proyectos</div>
+  <h2 class="section-title">Lo que he construido</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🛒</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Demo ↗</a>
+        </div>
+      </div>
+      <h3>Plataforma de E-Commerce</h3>
+      <p>Aplicación de compras full-stack con inventario en tiempo real, pagos con Stripe y un panel de administración para gestión de pedidos.</p>
+      <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Stripe</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📊</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Demo ↗</a>
+        </div>
+      </div>
+      <h3>Panel de Analítica</h3>
+      <p>Herramienta interactiva de visualización de datos que procesa archivos CSV/JSON y genera gráficos personalizados, filtros y estadísticas resumidas.</p>
+      <div class="project-tech"><span class="tech-tag">Vue</span><span class="tech-tag">D3.js</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Python</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <h3>Asistente de Escritura con IA</h3>
+      <p>Extensión de navegador impulsada por una API de LLM que ayuda a los usuarios a reformular, ampliar y resumir el texto seleccionado.</p>
+      <div class="project-tech"><span class="tech-tag">TypeScript</span><span class="tech-tag">Chrome API</span><span class="tech-tag">OpenAI</span></div>
     </div>
   </div>
 </section>

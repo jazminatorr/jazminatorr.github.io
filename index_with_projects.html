@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Jazmin — Portafolio</title>
+<title>Jazmin — Portfolio</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -69,6 +69,20 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag { font-size: 0.8rem; padding: 3px 10px; border-radius: 6px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
 
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-icon { font-size: 1.5rem; }
+  .project-links { display: flex; gap: 8px; }
+  .project-link { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .project-link:hover { color: var(--accent); }
+  .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .project-card p { font-size: 0.88rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: var(--accent-light); color: var(--accent-mid); font-weight: 600; }
+
   /* EXPERIENCE */
   .timeline { position: relative; padding-left: 2rem; }
   .timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
@@ -108,46 +122,48 @@
 <nav>
   <div class="nav-logo">Jaz</div>
   <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#skills">Habilidades</a></li>
-    <li><a href="#experience">Experiencia</a></li>
-    <li><a href="#education">Educación</a></li>
-    <li><a href="#interests">Intereses</a></li>
-    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div style="display:flex; gap:0.5rem; align-items:center;">
-    <a href="index.html" class="btn btn-outline" style="padding:0.45rem 1rem; font-size:0.85rem;">🇺🇸 EN</a>
-    <a href="#contact" class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.85rem;">Contrátame</a>
+    <a href="index_es.html" class="btn btn-outline" style="padding:0.45rem 1rem; font-size:0.85rem;">🇵🇷 ES</a>
+    <a href="#contact" class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.85rem;">Hire me</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag">Abierta a oportunidades</div>
-  <h1>Hola, soy <span>Jazmin</span>.<br/>Pongo a prueba los sistemas que impulsan la tecnología.</h1>
-  <p class="hero-sub">Ingeniería de software especializada en automatización de pruebas para sistemas críticos de alta tecnología — desde vehículos autónomos hasta visores de realidad virtual. Basada en Nueva Jersey.</p>
+  <div class="hero-tag">Open to opportunities</div>
+  <h1>Hi, I'm <span>Jazmin</span>.<br/>I test the systems that push technology forward.</h1>
+  <p class="hero-sub">Software engineer specializing in test automation for high-tech critical systems — from autonomous vehicles to VR headsets. Based in New Jersey.</p>
   <div class="hero-btns">
-    <a href="#contact" class="btn btn-outline">Contáctame</a>
+    <a href="#projects" class="btn btn-primary">View my work</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div> Desplázate para explorar</div>
+  <div class="hero-scroll"><div class="scroll-line"></div> Scroll to explore</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-label">Sobre mí</div>
-  <h2 class="section-title">Un poco sobre mí</h2>
+  <div class="section-label">About me</div>
+  <h2 class="section-title">A little about myself</h2>
   <div class="divider"></div>
   <div class="about-grid">
     <div class="about-photo">👤</div>
     <div class="about-text">
-      <p>Soy ingeniera de software especializada en automatización de pruebas para sistemas de alta tecnología y seguridad crítica. A lo largo de más de 7 años, he desarrollado y liderado pipelines de pruebas automatizadas para vehículos autónomos en Cruise y Zoox, una plataforma HIL basada en robótica para el seguimiento de VR en Oculus, y software de entrenamiento de vuelo militar en Leidos.</p>
-      <p>Me desenvuelvo mejor donde los riesgos son altos y el hardware es implacable — diseñando arquitecturas de prueba que detectan fallos antes de que lleguen al mundo real. Aporto rigor de ingeniería y curiosidad en igual medida a cada sistema en el que trabajo, ya sea una ECU de suspensión, una pila de percepción de cámaras o un algoritmo de seguimiento SLAM.</p>
-      <p>Fuera del trabajo, me recargo en el exterior — el ciclismo de montaña, el snowboard y el buceo libre me mantienen con los pies en la tierra — y en la pista de baile con la salsa.</p>
+      <p>I'm a software engineer specializing in test automation for safety-critical and high-tech systems. Over 7+ years I've built and led automated testing pipelines for autonomous vehicles at Cruise and Zoox, a robotics-based HIL platform for VR tracking at Oculus, and mission-critical military flight training software at Leidos.</p>
+      <p>I thrive where the stakes are high and the hardware is unforgiving — designing test architectures that catch failures before they ever reach the real world. I bring equal parts engineering rigor and curiosity to every system I work on, whether it's a suspension ECU, a camera perception stack, or a SLAM tracking algorithm.</p>
+      <p>Outside of work, I recharge in the outdoors — mountain biking, snowboarding, and free diving keep me grounded — and on the dance floor with salsa.</p>
       <div class="about-quick">
-        <div class="quick-item"><span>📍</span> Nueva Jersey, EE. UU.</div>
-        <div class="quick-item"><span>🎓</span> Ing. Eléctrica &amp; Computadoras</div>
-        <div class="quick-item"><span>💼</span> 7+ Años de Experiencia</div>
-        <div class="quick-item"><span>🌐</span> Remoto y Puerto Rico</div>
+        <div class="quick-item"><span>📍</span> New Jersey, USA</div>
+        <div class="quick-item"><span>🎓</span> B.S. Electrical &amp; Computer Engineering</div>
+        <div class="quick-item"><span>💼</span> 7+ Years Experience</div>
+        <div class="quick-item"><span>🌐</span> Open to remote &amp; Puerto Rico</div>
       </div>
     </div>
   </div>
@@ -155,120 +171,164 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label">Habilidades</div>
-  <h2 class="section-title">Con qué trabajo</h2>
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">What I work with</h2>
   <div class="divider"></div>
   <div class="skills-grid">
     <div class="skill-card">
-      <div class="skill-cat">Lenguajes</div>
+      <div class="skill-cat">Languages</div>
       <div class="skill-tags">
         <span class="tag">Python</span><span class="tag">C++</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">Automatización de Pruebas</div>
+      <div class="skill-cat">Test Automation</div>
       <div class="skill-tags">
-        <span class="tag">Pytest</span><span class="tag">Pruebas HIL</span><span class="tag">Pruebas SIL</span><span class="tag">TestRail</span><span class="tag">CppUnitTest</span><span class="tag">Arquitectura de Pruebas</span>
+        <span class="tag">Pytest</span><span class="tag">HIL Testing</span><span class="tag">SIL Testing</span><span class="tag">TestRail</span><span class="tag">CppUnitTest</span><span class="tag">Test Architecture</span>
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">Herramientas y Plataformas</div>
+      <div class="skill-cat">Tools & Platforms</div>
       <div class="skill-tags">
-        <span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">Robótica Industrial</span><span class="tag">Linux</span>
+        <span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">Industrial Robotics</span><span class="tag">Linux</span>
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">IA</div>
+      <div class="skill-cat">AI</div>
       <div class="skill-tags">
-        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Álgebra Lineal</span><span class="tag">Probabilidad</span><span class="tag">Procesos Estocásticos</span>
+        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Linear Algebra</span><span class="tag">Probability</span><span class="tag">Stochastic Processes</span>
       </div>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">Ciencias de la Computación</div>
+      <div class="skill-cat">Computer Science</div>
       <div class="skill-tags">
-        <span class="tag">Estructuras de Datos</span><span class="tag">Algoritmos</span><span class="tag">POO</span><span class="tag">Diseño de Sistemas</span>
+        <span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">OOP</span><span class="tag">System Design</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🛒</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Live ↗</a>
+        </div>
+      </div>
+      <h3>E-Commerce Platform</h3>
+      <p>A full-stack shopping app with real-time inventory, Stripe payments, and an admin dashboard for order management.</p>
+      <div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Stripe</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📊</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+          <a href="#" class="project-link">Live ↗</a>
+        </div>
+      </div>
+      <h3>Analytics Dashboard</h3>
+      <p>Interactive data visualization tool that ingests CSV/JSON data and renders custom charts, filters, and summary stats.</p>
+      <div class="project-tech"><span class="tech-tag">Vue</span><span class="tech-tag">D3.js</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Python</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <h3>AI Writing Assistant</h3>
+      <p>A browser extension powered by an LLM API that helps users rephrase, expand, and summarize selected text inline.</p>
+      <div class="project-tech"><span class="tech-tag">TypeScript</span><span class="tech-tag">Chrome API</span><span class="tech-tag">OpenAI</span></div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-label">Experiencia</div>
-  <h2 class="section-title">Dónde he trabajado</h2>
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
   <div class="divider"></div>
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Abr 2022 — Oct 2023</div>
-      <div class="timeline-role">Ingeniera Sénior de Desarrollo de Software en Pruebas</div>
+      <div class="timeline-date">Apr 2022 — Oct 2023</div>
+      <div class="timeline-role">Senior Software Development Engineer in Test</div>
       <div class="timeline-company">Cruise · San Francisco, CA</div>
-      <div class="timeline-desc">Lideré el ciclo completo de QA para los sistemas de cámaras exteriores de misión crítica en vehículos autónomos. Diseñé un pipeline de automatización de pruebas en tres niveles (SIL, HIL, En Vehículo) integrado en CI/CD. Lideré el triage de fallos complejos de múltiples sistemas y dirigí la trazabilidad de requisitos en dos líneas de vehículos utilizando Pytest y TestRail.</div>
+      <div class="timeline-desc">Led full-cycle QA for mission-critical exterior camera systems on autonomous vehicles. Architected a three-tiered test automation pipeline (SIL, HIL, On-Vehicle) integrated into CI/CD. Spearheaded complex multi-system failure triage and drove requirements traceability across two vehicle lines using Pytest and TestRail.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-date">Mar 2020 — Mar 2022</div>
-      <div class="timeline-role">Ingeniera de Software</div>
+      <div class="timeline-role">Software Engineer</div>
       <div class="timeline-company">Zoox · Foster City, CA</div>
-      <div class="timeline-desc">Líder técnica del equipo de Integración Hardware-Software (HWSI) para una empresa de vehículos autónomos. Diseñé y desarrollé pruebas automatizadas HIL/SIL de componentes para las ECUs del sistema de suspensión del vehículo. Trasladé las pruebas de componentes desde etapas tardías a una automatización continua de múltiples etapas en CI/CD, acelerando significativamente los ciclos de validación.</div>
+      <div class="timeline-desc">Technical Lead on the Hardware-Software Integration (HWSI) team for an autonomous vehicle company. Designed and developed automated HIL/SIL component tests for vehicle suspension system ECUs. Shifted component testing from late-stage to continuous CI/CD multi-stage automation, significantly accelerating validation feedback cycles.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-date">Oct 2018 — Mar 2020</div>
-      <div class="timeline-role">Desarrolladora de Automatización de Pruebas de Software</div>
-      <div class="timeline-company">Oculus VR (vía Q Analysts) · Menlo Park, CA</div>
-      <div class="timeline-desc">Diseñé una plataforma de automatización de pruebas HIL basada en robótica para el sistema de seguimiento SLAM de Oculus VR, permitiendo la detección automatizada de regresiones en el rendimiento del rastreador. Desarrollé un framework en Python para controlar robots industriales en pruebas de trayectoria precisas y repetibles para visores y controladores de VR.</div>
+      <div class="timeline-role">Software Test Automation Developer</div>
+      <div class="timeline-company">Oculus VR (via Q Analysts) · Menlo Park, CA</div>
+      <div class="timeline-desc">Architected a robotics-based HIL test automation platform for the Oculus VR SLAM tracking system, enabling automated detection of tracker performance regressions. Developed a Python framework to control industrial robots for precise, repeatable VR headset and controller path testing.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-date">Oct 2016 — May 2018</div>
-      <div class="timeline-role">Ingeniera de Software Junior · Ingeniera de Pruebas</div>
+      <div class="timeline-role">Junior Software Engineer · Test Engineer</div>
       <div class="timeline-company">Leidos · San Diego, CA</div>
-      <div class="timeline-desc">Desarrolladora de automatización de pruebas para el Sistema de Entrenamiento de Vuelo Militar del Reino Unido. Automaticé más de 900 pruebas unitarias en C++ con CppUnitTest, depuré fallos en compilaciones nocturnas y di soporte a CI/CD en Jenkins para productos de software heredados de planificación de misiones y debriefing post-vuelo.</div>
+      <div class="timeline-desc">Test automation developer for the UK Military Flight Training System. Automated 900+ C++ unit tests using CppUnitTest, debugged nightly build failures, and supported CI/CD on Jenkins for mission planner and post-flight debriefer legacy software products.</div>
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
-  <div class="section-label">Educación</div>
-  <h2 class="section-title">Dónde estudié</h2>
+  <div class="section-label">Education</div>
+  <h2 class="section-title">My alma mater</h2>
   <div class="divider"></div>
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot" style="background: var(--bg3); border-color: var(--accent);"></div>
       <div class="timeline-date">2016</div>
-      <div class="timeline-role">Licenciatura en Ciencias Aplicadas, Ingeniería Eléctrica y de Computadoras</div>
+      <div class="timeline-role">B.S. Applied Sciences, Electrical &amp; Computer Engineering</div>
       <div class="timeline-company">Rutgers School of Engineering</div>
-      <div class="timeline-desc">Future Leader of SHPE (2011) · Becaria SHPE-NYC (2010)</div>
+      <div class="timeline-desc">Future Leader of SHPE (2011) · SHPE-NYC Scholarship Recipient (2010)</div>
     </div>
   </div>
 </section>
 
 <!-- INTERESTS -->
 <section id="interests">
-  <div class="section-label">Intereses</div>
-  <h2 class="section-title">Más allá del código</h2>
+  <div class="section-label">Interests</div>
+  <h2 class="section-title">Beyond the code</h2>
   <div class="divider"></div>
-  <p class="section-sub">Algunas cosas que me mantienen inspirada fuera del trabajo.</p>
+  <p class="section-sub">A few things that keep me inspired outside of work.</p>
   <div class="interests-grid">
-    <div class="interest-card"><div class="interest-icon">🚵</div><p>Ciclismo de Montaña</p></div>
-    <div class="interest-card"><div class="interest-icon">🏂</div><p>Snowboard</p></div>
-    <div class="interest-card"><div class="interest-icon">🤿</div><p>Buceo Libre</p></div>
-    <div class="interest-card"><div class="interest-icon">💃</div><p>Bailar Salsa</p></div>
+    <div class="interest-card"><div class="interest-icon">🚵</div><p>Mountain Biking</p></div>
+    <div class="interest-card"><div class="interest-icon">🏂</div><p>Snowboarding</p></div>
+    <div class="interest-card"><div class="interest-icon">🤿</div><p>Free Diving</p></div>
+    <div class="interest-card"><div class="interest-icon">💃</div><p>Dancing Salsa</p></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label" style="text-align:center">Contacto</div>
-  <h2 class="section-title">Trabajemos juntos</h2>
+  <div class="section-label" style="text-align:center">Contact</div>
+  <h2 class="section-title">Let's work together</h2>
   <div class="divider" style="margin: 0.75rem auto 2.5rem;"></div>
-  <p class="contact-desc">Ya sea que tengas un puesto en mente, quieras colaborar o simplemente saludar — mi bandeja de entrada está abierta.</p>
+  <p class="contact-desc">Whether you have a role in mind, want to collaborate, or just want to say hi — my inbox is open.</p>
   <div class="contact-links">
     <a href="mailto:you@email.com" class="contact-link">
       <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      Envíame un correo
+      Email me
     </a>
     <a href="https://www.linkedin.com/in/jazmin-velez" target="_blank" class="contact-link">
       <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
@@ -280,21 +340,14 @@
     </a>
     <a href="#" class="contact-link">
       <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-      Currículum
+      Resume
     </a>
   </div>
 </section>
 
 <footer>
-  <p>Hecho con ♥ por Jazmin· © 2026</p>
+  <p>Built with ♥ by Jazmin · © 2026</p>
 </footer>
-
-<script>
-  if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname);
-  }
-  window.scrollTo(0, 0);
-</script>
 
 </body>
 </html>
